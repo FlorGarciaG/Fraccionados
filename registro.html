@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="formulario.css">
+  <title>Fraccionados</title>
+</head>
+
+<body>
+  <h1>
+    <center>
+      Fraccionados
+    </center>
+  </h1>
+  <div id="registro"><form method="post" action="signin.php"><section class="form-register">
+        <h4><center>Registro</center></h4>
+        <input class="controls" type="text" name="user" id="user" placeholder="Ingrese su Nombre" required autocomplete="off">
+  
+        <input maxlength="10" class="controls" type="tel" name="telefono" id="telefono" pattern="[0-9]{10}"
+          title="Ingrese un número de teléfono válido de 10 dígitos" onkeypress="return valideKey(event);"
+          placeholder="Ingrese su Telefono" required autocomplete="off">
+  
+        <input minlength="8"class="controls" type="password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Su contraseña debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 o más caracteres"
+          placeholder="Ingrese su Contraseña" required>
+  
+        <a href="http://localhost/Fraccionados/inicio.html"><button class="botons">Registrar</button></a>
+        <p><a href="http://localhost/Fraccionados/inicio.html">¿Ya tienes una Cuenta?</a></p>
+      </section> </form></div>
+
+</body>
+
+</html>
+
+<script>
+  function valideKey(evt) {
+
+    // code is the decimal ASCII representation of the pressed key.
+    var code = (evt.which) ? evt.which : evt.keyCode;
+
+    if (code == 8) { // backspace.
+      return true;
+    } else if (code >= 48 && code <= 57) { // is a number.
+      return true;
+    } else { // other keys.
+      return false;
+    }
+  }
+</script>

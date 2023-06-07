@@ -1,0 +1,43 @@
+* {
+  margin: 4;
+  padding: 0;
+  box-sizing: border-box;
+} 
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+body {
+    background-image: url('fracciones.jpg');
+    
+}
+
+.inde {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  margin: auto;
+  color: black;
+  font-family: 'calibri';
+}
+
+.inde a {
+    border: none;
+    padding: 50px;
+    color: black;
+    margin: 16px 0;
+    font-size: 16px;
+    margin-top: 1px;
+    margin-right: 80px;
+}
+
+
+.inde .boton1 {
+    width: 100%;
+    background: #c3f7fa;
+    border: none;
+    padding: 50px;
+    color: black;
+    margin: 16px 0;
+    font-size: 16px;
+    margin-right: 80px;
+    box-shadow: 7px 13px 37px #000;
+}

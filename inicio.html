@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estiloIndex.css">
+    <link rel="stylesheet" href="formulario.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="nivProblemas.js"></script>
+    <title>Fraccionados</title>
+</head>
+
+<body>
+    <h1>
+        <center>
+            Fraccionados
+        </center>
+    </h1>
+    <div id="inicio" method="post" class="form-register">
+        <h4>
+            <center>Inicio Sesión</center>
+        </h4>
+        <input class="controls" type="text" name="user" id="user" title="Ingrese un nombre de usuario válido"
+            placeholder="Ingrese su Nombre" required autocomplete="off">
+        <input class="controls" type="password" name="pass" id="pass" pattern=".{8,}"
+            title="La contraseña debe tener al menos 8 caracteres" placeholder="Ingrese su Contraseña" required>
+        <button class="botons" onclick="iniciarSesion()">Iniciar Sesión</button>
+        <p><a href="http://localhost/Fraccionados/registro.html">¿No tienes una Cuenta?</a></p>
+    </div>
+
+
+</body>
+
+<script>
+    function iniciarSesion() {
+        var nombreUsuario = document.getElementById("user").value;
+        var contraseña = document.getElementById("pass").value;
+
+        $.ajax({
+            url: 'login.php',
+            type: 'POST',
+            data: { nombreUsuario: nombreUsuario, contraseña: contraseña },
+            dataType: 'json',
+            success: function (data) {
+                if (data.coincide) {
+                    //alert('El dato coincide');
+
+                    // Almacenar el nombre de usuario y su telefono en el almacenamiento local
+                    localStorage.setItem("nombreUsuario", nombreUsuario);
+                    localStorage.setItem("telefono", data.telefono);
+                    localStorage.setItem("userID", data.userID);
+
+                    // Redirigir a la página niveles.html
+                    window.location.href = "niveles.html";
+                } else {
+                    alert('Usuario o contraseña incorrecto');
+                }
+            },
+            error: function () {
+                alert('Error al comparar los datos');
+            }
+        });
+
+    }
+</script>
+
+</html>

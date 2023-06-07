@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estiloIndex.css">
+    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="cabecera.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Problemas.js"></script>
+
+
+
+    <title>Fraccionados</title>
+</head>
+
+<body>
+    <h1> <center> Fraccionados </center> </h1>
+    <div id="cabecera">
+        <div class="usuario">
+            <h3>Bienvenid@, <span id="nombre-usuario"></span></h3>
+        </div>
+        <div class="cerrar-sesion">
+            <button onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <div id="problemas"></div>
+    <div id="palabra"></div>
+    <div class="inde" id="niv">
+        <a onclick="generarProblemas()">
+            <button class="boton1">Facil</button>
+        </a>
+        <a >
+            <button class="boton1">Medio</button>
+        </a>
+        <a>
+            <button class="boton1">Dificil</button>
+        </a>
+    </div>
+
+</body>
+<script>
+    // Obtener el nombre de usuario del almacenamiento local
+    var nombreUsuario = localStorage.getItem("nombreUsuario");
+    var telefono = localStorage.getItem("telefono");
+
+    // Mostrar el nombre de usuario en la cabecera
+    if (nombreUsuario) {
+        document.getElementById('nombre-usuario').textContent = nombreUsuario;
+    }
+    
+
+    // Función para cerrar sesión
+    function cerrarSesion() {
+        // Eliminar el nombre de usuario del almacenamiento local
+        localStorage.removeItem("nombreUsuario");
+        localStorage.removeItem("telefono");
+        localStorage.removeItem("userID");
+
+
+        // Redirigir a la página de inicio de sesión
+        window.location.href = "index.html";
+    }
+
+    
+</script>
+
+</html>
+
